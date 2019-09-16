@@ -16,7 +16,8 @@
     margin: 20px;
     padding: 5px;
 }
-.wedge-choice1:hover {
+/*I included the class for change wedge for my own purposes to keep the backgrounds straight.*/
+.change-wedge1 {
     background-color: #30bb0b;
 }
 .wedge-choice2 {
@@ -30,8 +31,8 @@
     margin: 20px;
     padding: 5px;
 }
-.wedge-choice2:hover {
-    background-color: red;
+.change-wedge2 {
+    background-color: #ff0000;
 }
 .wedge-choice3 {
     display: inline-block;
@@ -44,7 +45,7 @@
     margin: 20px;
     padding: 5px;
 }
-.wedge-choice3:hover {
+.change-wedge3 {
     background-color: yellow;
 }
 .wedge-choice4 {
@@ -58,7 +59,7 @@
     margin: 20px;
     padding: 5px;
 }
-.wedge-choice4:hover {
+.change-wedge4 {
     background-color: blue;
 }
 .simon {
