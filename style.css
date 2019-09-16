@@ -16,6 +16,9 @@
     margin: 20px;
     padding: 5px;
 }
+.wedge-choice1:hover {
+    background-color: #30bb0b;
+}
 .wedge-choice2 {
     display: inline-block;
     flex-direction: row;
@@ -23,9 +26,12 @@
     max-width: 460px;
     width: 200px;
     height: 200px;
-    background-color: red;
+    background-color: firebrick;
     margin: 20px;
     padding: 5px;
+}
+.wedge-choice2:hover {
+    background-color: red;
 }
 .wedge-choice3 {
     display: inline-block;
@@ -34,9 +40,12 @@
     max-width: 460px;
     width: 200px;
     height: 200px;
-    background-color: yellow;
+    background-color: #ffc303;
     margin: 20px;
     padding: 5px;
+}
+.wedge-choice3:hover {
+    background-color: yellow;
 }
 .wedge-choice4 {
     display: inline-block;
@@ -45,9 +54,12 @@
     max-width: 460px;
     width: 200px;
     height: 200px;
-    background-color: blue;
+    background-color: darkblue;
     margin: 20px;
     padding: 5px;
+}
+.wedge-choice4:hover {
+    background-color: blue;
 }
 .simon {
     background-color: black;
