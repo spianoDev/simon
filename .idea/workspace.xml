@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abe5913d-2592-4102-ac83-fe98bd444474" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/sounds/E-(yellow).mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/G-(red).mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/buzz-(incorrect).mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/gliss-(correct).mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/high-C-(green).mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/low-C-(blue).mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
@@ -27,6 +33,7 @@
   </component>
   <component name="ProjectId" id="1QvGKESc9iG86chIoItOAgl8llv" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -40,6 +47,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sounds" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -63,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568643590063</updated>
-      <workItem from="1568643591311" duration="3348000" />
+      <workItem from="1568643591311" duration="7183000" />
     </task>
     <servers />
   </component>
