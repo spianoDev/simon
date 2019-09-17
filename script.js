@@ -39,12 +39,13 @@ console.log(playerSequence);
 // had to make a separate event listener because it was interfering with my arrays.
 answerButton.addEventListener(('click'), function (e) {
     if (e.target.className === 'simon') {
-        if (playerSequence === computerSequence) {
-            correctSound.play();
+        for (let j = 0; j < 4; j++) {
+            if (playerSequence[j] === computerSequence[j]) {
+                correctSound.play();
+            } else {
+                buzzSound.play();
+            }
         }
-        // else {
-        //     buzzSound.play();
-        // }
     }
 });
 // a function to select a specific wedge/color/sound
