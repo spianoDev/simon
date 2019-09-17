@@ -17,7 +17,7 @@ let computerSequence = [];
 let playerSequence = [];
 // allows for the player to select a box/button and the output is visual and auditory.
 let option;
-//function sequence(player, numberOfRounds) {
+//function sequence() {
 pickWedge.addEventListener('click', function (evt) {
     if (evt.target.className === 'wedge-choice1') {
         wedge('.wedge-choice1', '#30bb0b', '#008000', pickSoundGreen);
@@ -36,20 +36,28 @@ pickWedge.addEventListener('click', function (evt) {
 });
 //}
 console.log(playerSequence);
+compareSequences(playerSequence, computerSequence);
 // had to make a separate event listener because it was interfering with my arrays.
-answerButton.addEventListener(('click'), function (e) {
-    if (e.target.className === 'simon') {
-        for (let j = 0; j < computerSequence.length; j++) {
-            if (playerSequence.length !== computerSequence.length) {
-                buzzSound.play();
-            } else if (playerSequence[j] !== computerSequence[j]) {
-                buzzSound.play();
-            } else {
-                correctSound.play();
+// looked up comparing arrays because I was getting both sounds to play on the second round of game play
+// https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
+// https://www.w3schools.com/jsref/jsref_every.asp
+function compareSequences(player, computer) {
+    answerButton.addEventListener(('click'), function (e) {
+        if (e.target.className === 'simon') {
+            for (let j = 0; j < computerSequence.length; j++) {
+                if (player.every((value, j) => value === computer[j])) {
+                //if (player[j] === computer[j]) {
+                    // the direct comparison wasn't working... was returning both sounds.
+                    correctSound.play();
+                    playerSequence = [];
+                } else {
+                    buzzSound.play();
+                    playerSequence = [];
+                }
             }
         }
-    }
-});
+    });
+}
 
 // a function to select a specific wedge/color/sound
 function wedge(selector, highlight, color, audioObject) {
@@ -88,7 +96,7 @@ function gameStart() {
     }
 }
 
-console.log(computerSequence);
+
 
 // need a function to add to the number of items in the array so that each round increases
 function addingOn() {
@@ -106,9 +114,8 @@ function addingOn() {
         }, 700 * index);
     }
     gameStart();
-    console.log(computerSequence);
 }
 
-
+console.log(computerSequence);
 
 
