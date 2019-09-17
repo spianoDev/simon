@@ -3,6 +3,7 @@ console.log('welcome to simon');
 
 // variables that allow for selection of wedge/button
 let pickWedge = document.querySelector('section');
+let answerButton = document.querySelector('.enter');
 // variables that create the sounds
 let pickSoundGreen = new Audio('sounds/green.mp3');
 let pickSoundRed = new Audio('sounds/red.mp3');
@@ -12,21 +13,38 @@ let correctSound = new Audio('sounds/gliss-(correct).mp3');
 let buzzSound = new Audio('sounds/buzz-(incorrect).mp3');
 // variable for computer generated sequences
 let computerSequence = [];
-
+//variable for player response
+let playerSequence = [];
 // allows for the player to select a box/button and the output is visual and auditory.
-pickWedge.addEventListener('click', function (evt) {
-    if (evt.target.className === 'wedge-choice1') {
-        wedge('.wedge-choice1', '#30bb0b','#008000', pickSoundGreen);
-    } else if (evt.target.className === 'wedge-choice2') {
-        wedge('.wedge-choice2', '#FF0000', '#B22222', pickSoundRed);
-    } else if (evt.target.className === 'wedge-choice3') {
-        wedge('.wedge-choice3', '#FFFF00', '#ffc303', pickSoundYellow);
-    } else if (evt.target.className === 'wedge-choice4') {
-        wedge('.wedge-choice4', '#0000FF', '#00008B', pickSoundBlue);
-    } else if (evt.target.className === 'simon') {
-        // place hold the gliss sound and buzz sound
-        correctSound.play();
-        buzzSound.play();
+let option;
+//function playerAttempt() {
+    pickWedge.addEventListener('click', function (evt) {
+        if (evt.target.className === 'wedge-choice1') {
+            wedge('.wedge-choice1', '#30bb0b', '#008000', pickSoundGreen);
+            option = 0;
+        } else if (evt.target.className === 'wedge-choice2') {
+            wedge('.wedge-choice2', '#FF0000', '#B22222', pickSoundRed);
+            option = 1;
+        } else if (evt.target.className === 'wedge-choice3') {
+            wedge('.wedge-choice3', '#FFFF00', '#ffc303', pickSoundYellow);
+            option = 2;
+        } else if (evt.target.className === 'wedge-choice4') {
+            wedge('.wedge-choice4', '#0000FF', '#00008B', pickSoundBlue);
+            option = 3;
+        }
+        playerSequence.push(option);
+    });
+//}
+console.log(playerSequence);
+// had to make a separate event listener because it was interfering with my arrays.
+answerButton.addEventListener(('click'), function (e) {
+    if (e.target.className === 'simon') {
+        if (playerSequence === computerSequence) {
+            correctSound.play();
+        }
+        // else {
+        //     buzzSound.play();
+        // }
     }
 });
 // a function to select a specific wedge/color/sound
@@ -49,7 +67,7 @@ function gameStart() {
     // https://stackoverflow.com/questions/24293376/javascript-for-loop-with-timeout
     for (let i = 1; i <= 4; i++) {
         let random = randomNumberBetween(0, 3);
-        const sequence = setTimeout(() => {
+        setTimeout(() => {
         if (random === 0) {
             wedge('.wedge-choice1', '#30bb0b', '#008000', pickSoundGreen);
         } else if (random === 1) {
@@ -60,12 +78,10 @@ function gameStart() {
             wedge('.wedge-choice4', '#0000FF', '#00008B', pickSoundBlue);
         }
             console.log(random);
-        }, 300 * i);
-       computerSequence.push(random[sequence]);
+        }, 700 * i);
+       //computerSequence.push(random[sequence]);
+        computerSequence.push(random);
     }
 }
 console.log(computerSequence);
-// need a way for the user to enter their response
-// function playerAttempt() {
-// //
-// // }
+
