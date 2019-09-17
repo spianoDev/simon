@@ -60,7 +60,7 @@ function gameStart() {
             wedge('.wedge-choice4', '#0000FF', '#00008B', pickSoundBlue);
         }
             console.log(random);
-        }, 400 * i);
+        }, 300 * i);
        computerSequence.push(random[sequence]);
     }
 }
