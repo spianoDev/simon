@@ -1,5 +1,16 @@
-body {
-    overflow-y: scroll;
+nav {
+    text-align: center;
+    margin: 30px 0 0;
+    padding: 15px 0;
+    background-color: black;
+    justify-content: space-around;
+
+}
+nav a {
+    font-size: 20px;
+    margin: 0 40px;
+    text-decoration: none;
+    color: white;
 }
 .container {
     position: relative;
