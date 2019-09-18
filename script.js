@@ -43,7 +43,6 @@ compareSequences(playerSequence, computerSequence);
 // https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
 // https://www.w3schools.com/jsref/jsref_every.asp
 function compareSequences(player, computer) {
-
     answerButton.addEventListener(('click'), function (e) {
         if (e.target.className === 'simon') {
             for (let j = 0; j < computerSequence.length; j++) {
@@ -53,10 +52,14 @@ function compareSequences(player, computer) {
                     correctSound.play();
                     console.log(player);
                     console.log(computer);
+                    // set timeout for addingOn function
+                   //
                 } else {
                     buzzSound.play();
+                    setTimeout(() => {document.location.reload()}, 1500);
                 }
             }
+            setTimeout(() => {addingOn()}, 2000);
         }
         playerSequence.splice(0, computerSequence.length);
     });
