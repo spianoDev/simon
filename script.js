@@ -33,15 +33,17 @@ pickWedge.addEventListener('click', function (evt) {
         option = 3;
     }
     playerSequence.push(option);
+    console.log(playerSequence);
 });
 //}
-console.log(playerSequence);
+
 compareSequences(playerSequence, computerSequence);
 // had to make a separate event listener because it was interfering with my arrays.
 // looked up comparing arrays because I was getting both sounds to play on the second round of game play
 // https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
 // https://www.w3schools.com/jsref/jsref_every.asp
 function compareSequences(player, computer) {
+
     answerButton.addEventListener(('click'), function (e) {
         if (e.target.className === 'simon') {
             for (let j = 0; j < computerSequence.length; j++) {
@@ -49,13 +51,14 @@ function compareSequences(player, computer) {
                 //if (player[j] === computer[j]) {
                     // the direct comparison wasn't working... was returning both sounds.
                     correctSound.play();
-                    playerSequence = [];
+                    console.log(player);
+                    console.log(computer);
                 } else {
                     buzzSound.play();
-                    playerSequence = [];
                 }
             }
         }
+        playerSequence.splice(0, computerSequence.length);
     });
 }
 
@@ -90,7 +93,7 @@ function gameStart() {
             } else if (random === 3) {
                 wedge('.wedge-choice4', '#0000FF', '#00008B', pickSoundBlue);
             }
-            console.log(random);
+         //   console.log(random);
         }, (700 * computerSequence.length) * i);
         computerSequence.push(random);
     }
