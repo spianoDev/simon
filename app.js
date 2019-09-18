@@ -46,7 +46,7 @@ function compareSequences(player, computer) {
     answerButton.addEventListener(('click'), function (e) {
         if (e.target.className === 'simon') {
             for (let j = 0; j < computerSequence.length; j++) {
-                if (player.every((value, j) => value === computer[j])) {
+                if (player.length === computer.length && player.every((value, j) => value === computer[j])) {
                 //if (player[j] === computer[j]) {
                     // the direct comparison wasn't working... was returning both sounds.
                     correctSound.play();
