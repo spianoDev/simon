@@ -1,12 +1,19 @@
 body {
     text-align: center;
+    background-color: rgba(245, 222, 179, 0.51);
 }
+
 main {
     text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 section div {
     text-align: center;
 }
+
 nav {
     text-align: center;
     margin: 30px 0 0;
@@ -15,24 +22,61 @@ nav {
     justify-content: space-around;
 
 }
+
 nav a {
+    font-family: 'Turret Road', cursive;
     font-size: 20px;
     margin: 0 40px;
     text-decoration: none;
     color: white;
 }
+
+h1 {
+    font-family: 'Turret Road', cursive;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: 'Turret Road', cursive;
+    font-size: 40px;
+    background-color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h3, h4 {
+    font-family: 'Noto Serif', serif;
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .container {
     text-align: center;
     position: relative;
     align-content: space-around;
     width: 575px;
     height: 575px;
-    margin: 25px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 45px;
     background-color: #000000;
     border-radius: 50%;
 
 }
+
 /*I wanted to make my game look like the original one so I started with a trapezoid shape.*/
 /*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_shapes_trapezoid*/
 /* trapezoid turned out to be a bit too complicated so I went with ovals */
@@ -51,10 +95,12 @@ nav a {
     margin-right: 25px;
     border-radius: 300px 0 0 0;
 }
+
 /*I included the class for change wedge for my own purposes to keep the backgrounds straight.*/
 .change-wedge1 {
     background-color: #30bb0b;
 }
+
 .wedge-choice2 {
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
@@ -69,9 +115,11 @@ nav a {
     padding: 30px;
     border-radius: 0 300px 0 0;
 }
+
 .change-wedge2 {
     background-color: #ff0000;
 }
+
 .wedge-choice3 {
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
@@ -86,9 +134,11 @@ nav a {
     padding: 30px;
     border-radius: 0 0 0 300px;
 }
+
 .change-wedge3 {
     background-color: yellow;
 }
+
 .wedge-choice4 {
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
@@ -104,27 +154,31 @@ nav a {
     padding: 30px;
     border-radius: 0 0 300px 0;
 }
+
 .change-wedge4 {
     background-color: blue;
 }
+
 .simon {
+    font-family: 'Turret Road', cursive;
     position: absolute;
     background-color: black;
     border-radius: 50%;
     text-align: start;
     color: white;
-    font-size: 70px;
-    margin-left: -18%;
-    margin-top: 210px;
-    padding: 5% 5% 15% 5%;
+    font-size: 40px;
+    margin-left: -12%;
+    margin-right: auto;
+    margin-top: 220px;
+    padding: 7% 7% 12% 7%;
     z-index: 1;
 }
+
 .start {
     position: absolute;
     background-color: red;
     border-radius: 50%;
     padding: 1.5%;
-    margin-left: -8%;
-    margin-top: 370px;
+    margin-top: 360px;
     z-index: 2;
 }

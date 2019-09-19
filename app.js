@@ -18,11 +18,11 @@ let playerSequence = [];
 // allows for the player to select a box/button and the output is visual and auditory.
 let option;
 /***** Version 2 upgrade below*****/
-let level1 = 700;
-let level2 = 600;
-let level3 = 500;
-let level4 = 400;
-let level5 = 500;
+let level1 = 900;
+let level2 = 850;
+let level3 = 700;
+let level4 = 550;
+let level5 = 400;
 const increaseScore = document.querySelector('.enter');
 let totalScore = 0;
 
@@ -42,29 +42,29 @@ function checkScore() {
         }, 2000);
     } else if (totalScore === 4) {
         levelUp();
-    } else if (totalScore > 4 && totalScore < 7) {
+    } else if (totalScore > 4 && totalScore < 8) {
         setTimeout(() => {
             addingOn(level2)
         }, 2000);
-    } else if (totalScore === 7) {
+    } else if (totalScore === 8) {
         levelUp();
-    } else if (totalScore > 7 && totalScore < 9) {
+    } else if (totalScore > 8 && totalScore < 12) {
         setTimeout(() => {
             addingOn(level3)
         }, 2000);
-    } else if (totalScore === 9) {
+    } else if (totalScore === 12) {
         levelUp();
-    } else if (totalScore > 9 && totalScore < 12) {
+    } else if (totalScore > 12 && totalScore < 16) {
         setTimeout(() => {
             addingOn(level4)
         }, 2000);
-    } else if (totalScore === 12) {
+    } else if (totalScore === 16) {
         levelUp();
-    } else if (totalScore > 12 && totalScore < 15) {
+    } else if (totalScore > 16 && totalScore < 20) {
         setTimeout(() => {
             addingOn(level5);
         }, 2000);
-    } else if (totalScore === 15) {
+    } else if (totalScore === 20) {
         beatSimon();
     }
 }
@@ -109,18 +109,19 @@ function youAreCorrect() {
 function gameLevelCheck() {
     if (totalScore < 4) {
         gameStart(level1);
-    } else if (totalScore >= 4) {
+    } else if (totalScore >= 4 && totalScore < 8) {
         gameStart(level2);
-    } else if (totalScore >= 7) {
+    } else if (totalScore >= 8 && totalScore < 12) {
         gameStart(level3);
-    } else if (totalScore >= 9) {
+    } else if (totalScore >= 12 && totalScore < 16) {
         gameStart(level4);
-    } else if (totalScore >= 12) {
+    } else if (totalScore >= 16 && totalScore < 20) {
         gameStart(level5);
-    } else if (totalScore >= 15) {
+    } else if (totalScore >= 20) {
         beatSimon();
     }
 }
+
 // https://stackoverflow.com/questions/16334323/event-handlers-on-message-box-buttons
 // trying to add an event listener to the alert box
 function levelUp() {
@@ -134,7 +135,7 @@ function levelUp() {
         }, 5000);
         console.log(computerSequence);
         console.log(playerSequence);
-    } else if (totalScore === 7) {
+    } else if (totalScore === 8) {
         levelMessage();
         computerSequence.splice(0, computerSequence.length);
         playerSequence.splice(0, playerSequence.length);
@@ -142,7 +143,7 @@ function levelUp() {
             gameStart(level3);
             updatePlayerLevel();
         }, 5000);
-    } else if (totalScore === 9) {
+    } else if (totalScore === 12) {
         levelMessage();
         computerSequence.splice(0, computerSequence.length);
         playerSequence.splice(0, playerSequence.length);
@@ -150,7 +151,7 @@ function levelUp() {
             gameStart(level4);
             updatePlayerLevel();
         }, 5000);
-    } else if (totalScore === 12) {
+    } else if (totalScore === 16) {
         levelMessage();
         computerSequence.splice(0, computerSequence.length);
         playerSequence.splice(0, playerSequence.length);
@@ -176,17 +177,17 @@ function levelMessage() {
 function updatePlayerLevel() {
     if (totalScore === 4) {
         document.getElementById('game-level').innerHTML = 'You are now on level 2!';
-    } else if (totalScore === 7) {
+    } else if (totalScore === 8) {
         document.getElementById('game-level').innerHTML = 'You are now on level 3!!';
-    } else if (totalScore === 9) {
-        document.getElementById('game-level').innerHTML = 'You are now on level 4!!!';
     } else if (totalScore === 12) {
+        document.getElementById('game-level').innerHTML = 'You are now on level 4!!!';
+    } else if (totalScore === 16) {
         document.getElementById('game-level').innerHTML = 'You are now on level 5!!!';
     }
 }
 
 function beatSimon() {
-    if (totalScore >= 15) {
+    if (totalScore >= 20) {
         youAreCorrect();
         setTimeout(() => {
             youAreCorrect();
@@ -199,7 +200,7 @@ function beatSimon() {
         }, 6000);
         setTimeout(() => {
             document.location.reload();
-        }, 30000);
+        }, 15000);
     }
 }
 
@@ -232,22 +233,29 @@ compareSequences(playerSequence, computerSequence);
 function compareSequences(player, computer) {
     answerButton.addEventListener(('click'), function (e) {
         if (e.target.className === 'simon') {
-            for (let j = 0; j < computerSequence.length; j++) {
-                if (player.length === computer.length && player.every((value, j) => value === computer[j])) {
-                    //if (player[j] === computer[j]) {
-                    // the direct comparison wasn't working... was returning both sounds.
-                    youAreCorrect();
-                    console.log(player);
-                    console.log(computer);
-                } else {
-                    buzzSound.play();
-                    setTimeout(() => {
-                        document.location.reload();
-                    }, 1500);
+            if (playerSequence.length !== computerSequence.length) {
+                buzzSound.play();
+                setTimeout(() => {
+                    document.location.reload();
+                }, 1500);
+            } else {
+                for (let j = 0; j < computerSequence.length; j++) {
+                    if (player.every((value, j) => value === computer[j])) {
+                        //if (player[j] === computer[j]) {
+                        // the direct comparison wasn't working... was returning both sounds.
+                        youAreCorrect();
+                        console.log(player);
+                        console.log(computer);
+                    } else {
+                        buzzSound.play();
+                        setTimeout(() => {
+                            document.location.reload();
+                        }, 1500);
+                    }
                 }
+                scoreKeeper();
+                checkScore();
             }
-            scoreKeeper();
-            checkScore();
         }
         playerSequence.splice(0, computerSequence.length);
     });
@@ -259,7 +267,7 @@ function wedge(selector, highlight, color, audioObject) {
     audioObject.play();
     setTimeout(() => {
         document.querySelector(selector).style.backgroundColor = color;
-    }, 400);
+    }, 300);
 }
 
 // a function to generate a random number

@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <title>Simon</title>
     <link href="style.css" type="text/css" rel="stylesheet">
-<!-- Link to how to add sound   http://www.boogiejack.com/add_sound.html-->
-<!--    when the above solution didn't work very well, I tried the next one-->
-<!--    https://www.dummies.com/web-design-development/html5-and-css3/how-to-add-audio-to-your-html5-and-css3-based-web-pages/-->
+    <link href="https://fonts.googleapis.com/css?family=Turret+Road&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
+
+    <!-- Link to how to add sound   http://www.boogiejack.com/add_sound.html-->
+    <!--    when the above solution didn't work very well, I tried the next one-->
+    <!--    https://www.dummies.com/web-design-development/html5-and-css3/how-to-add-audio-to-your-html5-and-css3-based-web-pages/-->
 </head>
 <body>
 <nav>
@@ -14,13 +17,14 @@
     <a href="http://spiano.dev/mini-games.html">Mini Games</a>
 </nav>
 <main>
-<h1> Welcome to Simon!</h1>
+    <h1> Welcome to Simon!</h1>
     <h3> To play, hit the small red button under simon. Simon will play one sound. You must copy what he does and hit
-        the Simon button to enter your response. After your response, Simon will add a new note to the sequence of
-        notes. Keep trying to copy the sounds.</h3>
-    <h4>If you are right, your score will increase and you will hear a pleasant xylophone sound. If you
-        make a mistake you will hear a buzzer and your score returns to 0. See if you can beat Simon's level 5!</h4>
-    <div >
+        the Simon button to enter your response. If correct, Simon will add a new note to the sequence of
+        notes. Continue these steps to win!</h3>
+    <h4>If you are correct, your score will increase and you will hear a pleasant xylophone sound. If you
+        make a mistake, you will hear a buzzer and your score returns to 0.</h4>
+    <h4>Can you beat Simon's level 5?</h4>
+    <div>
         <h2 id="game-level">You are now on level 1.</h2>
     </div>
     <div class="level-score">
@@ -30,25 +34,25 @@
         <button class="simon" type="button">simon</button>
     </div>
     <button class="start" type="button" onclick="gameStart(level1)"></button>
-<!--    <button class="start" type="button" onclick="addingOn()">Continue Game</button>-->
+    <!--    <button class="start" type="button" onclick="addingOn()">Continue Game</button>-->
 
-<section id="game" class="container">
+    <section id="game" class="container">
 
-    <div class="wedge-choice1">
+        <div class="wedge-choice1">
 
-    </div>
-    <div class="wedge-choice2">
+        </div>
+        <div class="wedge-choice2">
 
-    </div>
+        </div>
 
-    <div class="wedge-choice3">
+        <div class="wedge-choice3">
 
-    </div>
-    <div class="wedge-choice4">
+        </div>
+        <div class="wedge-choice4">
 
-    </div>
+        </div>
 
-</section>
+    </section>
 
 
 </main>
