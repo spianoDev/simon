@@ -45,8 +45,12 @@ I was surprised how much time I spent working on this. I spent a fair amount of 
 Add scoring and levels 
 ## comments: 
 This final stage took several steps to achieve exactly what I wanted. The 'final' version for quick game play was to
- ensure a win case in a demo. The longer play version is much more true to the original spirit of the game and will
-  be purposefully difficult to beat. 
+ ensure a win case in a demo. For this case, I created five independent levels that after four tones will level up
+ . The level up has less time between computer selections. 
+ 
+ The longer play version is much more true to the original spirit of the game and will be purposefully difficult to
+  beat. The computer selections will not only get faster, but the number of tones in the sequence required to level
+   up will increase exponentially.
   
   ## future additions:
   I may return to this project to add a way for users to enter their high scores. I think it would be fun to see who
