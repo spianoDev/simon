@@ -25,67 +25,103 @@ let level4 = 400;
 let level5 = 500;
 const increaseScore = document.querySelector('.enter');
 let totalScore = 0;
-
 // function for adding levels
 
-function levelUp(level) {
-    increaseScore.addEventListener('click', function (evnt) {
-        if (evnt.target.className === 'simon') {
-            //if (correctSound.play() === true) {
+function scoreKeeper() {
             let score = document.querySelector('.score');
             totalScore += 1;
             score.innerHTML = `player score = ${totalScore}`;
-            if (totalScore >= 8) {
-                youAreCorrect();
-                setTimeout(() => {
-                    youAreCorrect();
-                }, 1600);
-                //}
-            }
-        }
-    });
 }
 
-levelUp(level1);
 // since my function was getting really long...
 function checkScore() {
-    if (level1 && totalScore === 8) {
-        setTimeout(() => {
-            alert('You WON');
-        }, 4000);
-    } else {
+    if (totalScore < 4) {
         setTimeout(() => {
             addingOn(level1)
         }, 2000);
+    } else if (totalScore === 4) {
+       levelUp();
+    } else if (totalScore > 4 && totalScore < 7) {
+        setTimeout(() => {
+            addingOn(level2)
+        }, 2000);
     }
 }
+
 // I wanted to add a visual element to the correct sound
 function visualCorrect(selector, highlight, color) {
-        document.querySelector(selector).style.backgroundColor = highlight;
-        setTimeout(() => {
-            document.querySelector(selector).style.backgroundColor = color;
-        }, 300);
+    document.querySelector(selector).style.backgroundColor = highlight;
+    setTimeout(() => {
+        document.querySelector(selector).style.backgroundColor = color;
+    }, 300);
 }
+
 // to add the correct sound to the visual element
 function youAreCorrect() {
     correctSound.play();
     visualCorrect('.wedge-choice4', '#0000FF', '#00008B');
-    setTimeout(() =>
-    {visualCorrect('.wedge-choice3', '#FFFF00', '#ffc303')}, 100);
-    setTimeout(() =>
-    {visualCorrect('.wedge-choice1', '#30bb0b', '#008000')}, 200);
-    setTimeout(() =>
-    {visualCorrect('.wedge-choice2', '#FF0000', '#B22222')}, 300);
-    setTimeout(() =>
-    {visualCorrect('.wedge-choice4', '#0000FF', '#00008B')}, 400);
-    setTimeout(() =>
-    {visualCorrect('.wedge-choice3', '#FFFF00', '#ffc303')}, 500);
-    setTimeout(() =>
-    {visualCorrect('.wedge-choice1', '#30bb0b', '#008000')}, 600);
-    setTimeout(() =>
-    {visualCorrect('.wedge-choice2', '#FF0000', '#B22222')}, 700);
+    setTimeout(() => {
+        visualCorrect('.wedge-choice3', '#FFFF00', '#ffc303')
+    }, 100);
+    setTimeout(() => {
+        visualCorrect('.wedge-choice1', '#30bb0b', '#008000')
+    }, 200);
+    setTimeout(() => {
+        visualCorrect('.wedge-choice2', '#FF0000', '#B22222')
+    }, 300);
+    setTimeout(() => {
+        visualCorrect('.wedge-choice4', '#0000FF', '#00008B')
+    }, 400);
+    setTimeout(() => {
+        visualCorrect('.wedge-choice3', '#FFFF00', '#ffc303')
+    }, 500);
+    setTimeout(() => {
+        visualCorrect('.wedge-choice1', '#30bb0b', '#008000')
+    }, 600);
+    setTimeout(() => {
+        visualCorrect('.wedge-choice2', '#FF0000', '#B22222')
+    }, 700);
 }
+
 /***** Version 2 upgrade above*****/
+/***** Version 3 upgrade below*****/
+function gameLevelCheck() {
+    if (totalScore < 4) {
+        gameStart(level1);
+    } else if (totalScore >= 4) {
+        gameStart(level2);
+    } else if (totalScore >= 7) {
+        gameStart(level3);
+    }
+}
+// https://stackoverflow.com/questions/16334323/event-handlers-on-message-box-buttons
+// trying to add an event listener to the alert box
+function levelUp() {
+    if (totalScore === 4) {
+        levelMessage();
+        computerSequence.splice(0, computerSequence.length);
+        playerSequence.splice(0, playerSequence.length);
+        setTimeout(() => {
+            gameStart(level2);
+        }, 5000);
+        console.log(computerSequence);
+        console.log(playerSequence);
+     }
+        // else if (totalScore === 7) {
+    //
+    // }
+}
+function levelMessage() {
+    youAreCorrect();
+    setTimeout(() => {
+        youAreCorrect();
+    }, 1600);
+    setTimeout(() => {
+        alert(`You have completed a level! Hit ok to keep trying to beat Simon!`);
+    }, 3400);
+}
+
+/***** Version 3 upgrade above*****/
 // select wedge
 pickWedge.addEventListener('click', function (evt) {
     if (evt.target.className === 'wedge-choice1') {
@@ -121,15 +157,15 @@ function compareSequences(player, computer) {
                     youAreCorrect();
                     console.log(player);
                     console.log(computer);
-
-                } else {
+                }  else {
                     buzzSound.play();
                     setTimeout(() => {
                         document.location.reload()
                     }, 1500);
                 }
             }
-            checkScore(level1);
+            scoreKeeper();
+            checkScore();
         }
         playerSequence.splice(0, computerSequence.length);
     });
@@ -188,7 +224,7 @@ function addingOn(time) {
             }
         }, time * index);
     }
-    gameStart(level1);
+    gameLevelCheck();
 }
 
 console.log(computerSequence);
