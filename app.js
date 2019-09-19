@@ -23,7 +23,7 @@ let level2 = 850;
 let level3 = 700;
 let level4 = 550;
 let level5 = 400;
-const increaseScore = document.querySelector('.enter');
+
 let totalScore = 0;
 
 // function for adding levels
