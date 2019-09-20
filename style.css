@@ -94,12 +94,6 @@ h4 {
     margin-right: 25px;
     border-radius: 300px 0 0 0;
 }
-
-/*I included the class for change wedge for my own purposes to keep the backgrounds straight.*/
-.change-wedge1 {
-    background-color: #30bb0b;
-}
-
 .wedge-choice2 {
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
@@ -113,10 +107,6 @@ h4 {
     background-color: firebrick;
     padding: 30px;
     border-radius: 0 300px 0 0;
-}
-
-.change-wedge2 {
-    background-color: #ff0000;
 }
 
 .wedge-choice3 {
@@ -134,10 +124,6 @@ h4 {
     border-radius: 0 0 0 300px;
 }
 
-.change-wedge3 {
-    background-color: yellow;
-}
-
 .wedge-choice4 {
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
@@ -152,10 +138,6 @@ h4 {
     margin-top: 50px;
     padding: 30px;
     border-radius: 0 0 300px 0;
-}
-
-.change-wedge4 {
-    background-color: blue;
 }
 
 .simon {

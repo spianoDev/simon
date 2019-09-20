@@ -36,35 +36,35 @@ function scoreKeeper() {
 
 // since my function was getting really long...
 function checkScore() {
-    if (totalScore < 4) {
+    if (totalScore < 8) {
         setTimeout(() => {
             addingOn(level1)
         }, 2000);
-    } else if (totalScore === 4) {
+    } else if (totalScore === 8) {
         levelUp();
-    } else if (totalScore > 4 && totalScore < 8) {
+    } else if (totalScore > 8 && totalScore < 20) {
         setTimeout(() => {
             addingOn(level2)
         }, 2000);
-    } else if (totalScore === 8) {
+    } else if (totalScore === 20) {
         levelUp();
-    } else if (totalScore > 8 && totalScore < 12) {
+    } else if (totalScore > 20 && totalScore < 34) {
         setTimeout(() => {
             addingOn(level3)
         }, 2000);
-    } else if (totalScore === 12) {
+    } else if (totalScore === 34) {
         levelUp();
-    } else if (totalScore > 12 && totalScore < 16) {
+    } else if (totalScore > 34 && totalScore < 50) {
         setTimeout(() => {
             addingOn(level4)
         }, 2000);
-    } else if (totalScore === 16) {
+    } else if (totalScore === 50) {
         levelUp();
-    } else if (totalScore > 16 && totalScore < 20) {
+    } else if (totalScore > 50 && totalScore < 70) {
         setTimeout(() => {
             addingOn(level5);
         }, 2000);
-    } else if (totalScore === 20) {
+    } else if (totalScore === 70) {
         beatSimon();
     }
 }
@@ -107,17 +107,17 @@ function youAreCorrect() {
 /***** Version 2 upgrade above*****/
 /***** Version 3 upgrade below*****/
 function gameLevelCheck() {
-    if (totalScore < 4) {
+    if (totalScore < 8) {
         gameStart(level1);
-    } else if (totalScore >= 4 && totalScore < 8) {
+    } else if (totalScore >= 8 && totalScore < 20) {
         gameStart(level2);
-    } else if (totalScore >= 8 && totalScore < 12) {
+    } else if (totalScore >= 20 && totalScore < 34) {
         gameStart(level3);
-    } else if (totalScore >= 12 && totalScore < 16) {
+    } else if (totalScore >= 34 && totalScore < 50) {
         gameStart(level4);
-    } else if (totalScore >= 16 && totalScore < 20) {
+    } else if (totalScore >= 50 && totalScore < 70) {
         gameStart(level5);
-    } else if (totalScore >= 20) {
+    } else if (totalScore >= 70) {
         beatSimon();
     }
 }
@@ -125,7 +125,7 @@ function gameLevelCheck() {
 // https://stackoverflow.com/questions/16334323/event-handlers-on-message-box-buttons
 // trying to add an event listener to the alert box
 function levelUp() {
-    if (totalScore === 4) {
+    if (totalScore === 8) {
         levelMessage();
         computerSequence.splice(0, computerSequence.length);
         playerSequence.splice(0, playerSequence.length);
@@ -135,7 +135,7 @@ function levelUp() {
         }, 5000);
         console.log(computerSequence);
         console.log(playerSequence);
-    } else if (totalScore === 8) {
+    } else if (totalScore === 20) {
         levelMessage();
         computerSequence.splice(0, computerSequence.length);
         playerSequence.splice(0, playerSequence.length);
@@ -143,7 +143,7 @@ function levelUp() {
             gameStart(level3);
             updatePlayerLevel();
         }, 5000);
-    } else if (totalScore === 12) {
+    } else if (totalScore === 34) {
         levelMessage();
         computerSequence.splice(0, computerSequence.length);
         playerSequence.splice(0, playerSequence.length);
@@ -151,7 +151,7 @@ function levelUp() {
             gameStart(level4);
             updatePlayerLevel();
         }, 5000);
-    } else if (totalScore === 16) {
+    } else if (totalScore === 50) {
         levelMessage();
         computerSequence.splice(0, computerSequence.length);
         playerSequence.splice(0, playerSequence.length);
@@ -175,19 +175,19 @@ function levelMessage() {
 /***** Version 3 upgrade above*****/
 /***** Version 4 upgrade below*****/
 function updatePlayerLevel() {
-    if (totalScore === 4) {
+    if (totalScore === 8) {
         document.getElementById('game-level').innerHTML = 'You are now on level 2!';
-    } else if (totalScore === 8) {
+    } else if (totalScore === 20) {
         document.getElementById('game-level').innerHTML = 'You are now on level 3!!';
-    } else if (totalScore === 12) {
+    } else if (totalScore === 34) {
         document.getElementById('game-level').innerHTML = 'You are now on level 4!!!';
-    } else if (totalScore === 16) {
+    } else if (totalScore === 50) {
         document.getElementById('game-level').innerHTML = 'You are now on level 5!!!';
     }
 }
 
 function beatSimon() {
-    if (totalScore >= 20) {
+    if (totalScore >= 70) {
         youAreCorrect();
         setTimeout(() => {
             youAreCorrect();
@@ -221,7 +221,6 @@ pickWedge.addEventListener('click', function (evt) {
         option = 3;
     }
     playerSequence.push(option);
-    console.log(playerSequence);
 });
 
 
@@ -241,8 +240,6 @@ function compareSequences(player, computer) {
             } else {
                 for (let j = 0; j < computerSequence.length; j++) {
                     if (player.every((value, j) => value === computer[j])) {
-                        //if (player[j] === computer[j]) {
-                        // the direct comparison wasn't working... was returning both sounds.
                         youAreCorrect();
                         console.log(player);
                         console.log(computer);
@@ -292,7 +289,6 @@ function gameStart(time) {
             } else if (random === 3) {
                 wedge('.wedge-choice4', '#0000FF', '#00008B', pickSoundBlue);
             }
-            //   console.log(random);
         }, (time * computerSequence.length) * i);
         computerSequence.push(random);
     }

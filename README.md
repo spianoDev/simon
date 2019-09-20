@@ -3,8 +3,6 @@
 ## (My take on the classic game.)
 ![Image](simon-in-progress.jpg)
 
-This project was completed using HTML, CSS, and JavaScript.
-
 I decided to tackle this in phases:
 
 ## phase 1:
@@ -213,4 +211,10 @@ function levelUp() {
   I may return to this project to add a way for users to enter their high scores. I think it would be fun to see who
    is playing this game (and where in the world they are playing it). Also, if too many are winning that level 5, maybe I will make it even more challenging!
 
+## access and info:
+This project was completed using HTML, CSS, and JavaScript. All code created by Sarah Panaligan. Please submit
+ comments and fixes through the [issues](https://github.com/spianoDev/simon/issues) tab on this repository. Forks
+  welcome, but since this is a portfolio piece, pull requests will not be considered at this time.
+
+You can play the game via my website: [spiano.dev](https://www.spiano.dev/simon/).
 
