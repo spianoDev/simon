@@ -133,8 +133,6 @@ function levelUp() {
             gameStart(level2);
             updatePlayerLevel();
         }, 5000);
-        console.log(computerSequence);
-        console.log(playerSequence);
     } else if (totalScore === 20) {
         levelMessage();
         computerSequence.splice(0, computerSequence.length);
@@ -313,6 +311,5 @@ function addingOn(time) {
     gameLevelCheck();
 }
 
-console.log(computerSequence);
 
 
