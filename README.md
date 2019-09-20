@@ -1,5 +1,7 @@
 # simon
+
 ## (My take on the classic game.)
+![Image](simon-in-progress.jpg)
 
 This project was completed using HTML, CSS, and JavaScript.
 
